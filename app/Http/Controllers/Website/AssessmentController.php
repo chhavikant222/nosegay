@@ -14,7 +14,7 @@ class AssessmentController extends Controller
      */
     public function index()
     {
-        $assessment = Assessment::all();
+        $assessment = Assessment::paginate(5);
         return response()->json([
             "response" => $assessment,
             "status" => 200,

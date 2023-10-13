@@ -31,15 +31,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // REGISTERATION
-  Route::post('/register',[AuthController::class, 'register']);
+  Route::post('/register',[UserController::class, 'register']);
 
 // UPDATE PASSWORD
-  Route::post('/update-user',[UserController::class, 'updateUser']);
+  Route::post('/update-user',[AuthController::class, 'updateUser']);
 
 // ALL USERS
   Route::get('/users',[UserController::class, 'allUsers']);
+  
+  // SINGLE USER
+  Route::get('/user/{id}',[UserController::class, 'singleUser']);
 
-// ALL USERS
+// DELETE USER
   Route::delete('/delete-users/{id}',[UserController::class, 'deleteUser']);
 
 // LOGIN

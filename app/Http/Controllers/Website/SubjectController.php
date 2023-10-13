@@ -14,7 +14,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $subject = Subject::all();
+        $subject = Subject::paginate(5);
         return response()->json([
             "response" => $subject,
             "status" => 200,
@@ -79,6 +79,7 @@ class SubjectController extends Controller
      */
     public function update(Request $req)
     {
+        
         try{
             $validatedData = $req->validate([
                 'id' => 'required',

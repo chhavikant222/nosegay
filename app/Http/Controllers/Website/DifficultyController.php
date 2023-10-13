@@ -14,7 +14,7 @@ class DifficultyController extends Controller
      */
     public function index()
     {
-        $difficult_levels = Difficulty::all();
+        $difficult_levels = Difficulty::paginate(5);
         return response()->json([
             "response" => $difficult_levels,
             "status" => 200,

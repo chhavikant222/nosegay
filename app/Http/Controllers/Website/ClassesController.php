@@ -14,7 +14,7 @@ class ClassesController extends Controller
      */
     public function index()
     {
-        $classes = Section::all();
+        $classes = Section::paginate(5);
         return response()->json([
             "response" => $classes,
             "status" => 200,

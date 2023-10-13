@@ -14,7 +14,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        $tests = Test::all();
+        $tests = Test::paginate(5);
         return response()->json([
             "response" => $tests,
             "status" => 200,
